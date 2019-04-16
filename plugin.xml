@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="ionic-cordova-plugin-xprinter" version="1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>
+		ionicXprinter
+	</name>
+	<js-module name="ionicXprinter" src="www/ionicXprinter.js">
+		<clobbers target="cordova.plugins.ionicXprinter" />
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="ionicXprinter">
+				<param name="android-package" value="ionic-cordova-plugin-xprinter.ionicXprinter" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml" />
+		<source-file src="src/android/ionicXprinter.java" target-dir="src/ionic-cordova-plugin-xprinter/ionicXprinter" />
+ 		<source-file src="src/android/Xprinter_Android_SDK.jar" target-dir="libs" />
+   		<config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        </config-file>
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="ionicXprinter">
+				<param name="ios-package" value="ionicXprinter" />
+			</feature>
+		</config-file>
+		<source-file src="src/ios/ionicXprinter.m" />
+	</platform>
+</plugin>
